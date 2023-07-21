@@ -17,14 +17,17 @@ class TrainsArrivals extends Seeder
     public function run(Faker $faker)
     {
         for ($i=0; $i < 10 ; $i++) { 
-        $newTrain = new Train();
-        $newTrain->company = $faker->company;
-        $newTrain->departure_station = $faker->city;
-        $newTrain->arrival_station = $faker->city;
-        $newTrain->arrival_time = $faker->dateTimeBetween('-1 week', '+1 week');
-        $newTrain->departure_time = $faker->dateTimeBetween('-1 week', '+1 week');
-        $newTrain->save();
+            $newTrain = new Train();
+            $newTrain->company = $faker->company;
+            $newTrain->departure_station = $faker->city;
+            $newTrain->arrival_station = $faker->city;
+            $newTrain->arrival_time = $faker->time();
+            $newTrain->departure_time = $faker->time();
+            $newTrain->code_train = $faker->randomNumber();
+            $newTrain->train_number_carriage = $faker->randomNumber();
+            $newTrain->in_time = $faker->boolean();
+            $newTrain->cancelled = $faker->boolean();
+            $newTrain->save();
         }
     }
-
 }
