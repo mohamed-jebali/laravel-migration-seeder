@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use Faker\Generator as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Generator as Faker;
 use App\Models\Train;
 
 class TrainsArrivals extends Seeder
@@ -18,8 +18,13 @@ class TrainsArrivals extends Seeder
     {
         for ($i=0; $i < 10 ; $i++) { 
         $newTrain = new Train();
-        $newTrain->company_name = $faker->company_name;
+        $newTrain->company = $faker->company;
+        $newTrain->departure_station = $faker->city;
+        $newTrain->arrival_station = $faker->city;
+        $newTrain->arrival_time = $faker->dateTimeBetween('-1 week', '+1 week');
+        $newTrain->departure_time = $faker->dateTimeBetween('-1 week', '+1 week');
         $newTrain->save();
         }
     }
+
 }
