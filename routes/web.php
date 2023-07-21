@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Guest\PageController as PageController;
-use App\Http\Controllers\Guest\TrainController as TrainController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Guest\PageController as GuestPageController;
+use App\Http\Controllers\Guest\TrainController as GuestTrainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'home'])->name('guest.home');
-Route::get('/trains', [TrainController::class, 'index'])->name('guest.train.index');
+Route::get('/', [GuestPageController::class, 'home'])->name('guest.home');
+Route::get('/trains', [GuestTrainController::class, 'index'])->name('guest.train.index');
