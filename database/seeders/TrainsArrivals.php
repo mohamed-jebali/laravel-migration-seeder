@@ -21,12 +21,12 @@ class TrainsArrivals extends Seeder
             $newTrain->company = $faker->company;
             $newTrain->departure_station = $faker->city;
             $newTrain->arrival_station = $faker->city;
-            $newTrain->arrival_time = $faker->time();
-            $newTrain->departure_time = $faker->time();
-            $newTrain->code_train = $faker->randomNumber();
-            $newTrain->train_number_carriage = $faker->randomNumber();
-            $newTrain->in_time = $faker->boolean();
-            $newTrain->cancelled = $faker->boolean();
+            $newTrain->arrival_time = $faker->dateTimeThisYear($max = 'now',$timezone = null);
+            $newTrain->departure_time = $faker->dateTimeThisYear($max = 'now',$timezone = null);
+            $newTrain->code_train = $faker->numberBetween(1,100);
+            $newTrain->train_number_carriage = $faker->numberBetween(1,20);
+            $newTrain->in_time = $faker->boolean(true,false);
+            $newTrain->cancelled = $faker->boolean(true,false);
             $newTrain->save();
         }
     }
