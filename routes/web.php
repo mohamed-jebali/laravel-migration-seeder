@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Guest\PageController as GuestPageController;
 use App\Http\Controllers\Guest\TrainController as GuestTrainController;
+use App\Http\Controllers\Guest\FlightsController as GuestFlightsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,4 @@ use App\Http\Controllers\Guest\TrainController as GuestTrainController;
 
 Route::get('/', [GuestPageController::class, 'home'])->name('guest.home');
 Route::get('/trains', [GuestTrainController::class, 'index'])->name('guest.train.index');
+Route::get('/flights', [GuestFlightsController::class, 'flights'])->name('guest.flight.index');
